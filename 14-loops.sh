@@ -2,7 +2,7 @@
 
 for i in {0..5}
 do
-     echo $id
+     echo $i
 done
 
 # echo 1
