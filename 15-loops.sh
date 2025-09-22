@@ -20,7 +20,7 @@ VALIDATE(){
     fi  
 }
 
-echo "script started executing at: $TIMESTAMP" &>>$LOG_FILE_NAME
+echo "script started executing at: $TIMESTAMP" &>>$LOG_FILE
 
 if [ $USERID -ne 0 ]
 then
@@ -30,10 +30,10 @@ fi
 
 for package in $@
 do
-   dnf list installed $package &>>$LOG_FILE_NAME
+   dnf list installed $package &>>$LOG_FILE
    if [ $? -ne 0]
    then
-       dnf list installed $package -y &>>$LOG_FILE_NAME
+       dnf list installed $package -y &>>$LOG_FILE
        VALIDATE $? "installing $package"
    else
        echo -e "$package is already $Y ... INSTALLED $N"
